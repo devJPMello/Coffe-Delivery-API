@@ -21,7 +21,7 @@ API RESTful desenvolvida com NestJS, Prisma ORM e PostgreSQL (NeonDB), para gere
 1. Clone o repositório:
 
 ```bash
-git clone 
+git clone https://github.com/devJPMello/Coffe-Delivery-API.git
 ```
 
 2. Instale as dependências:
@@ -43,13 +43,13 @@ DATABASE_URL="postgresql://USUARIO:SENHA@HOST/neondb?sslmode=require"
 1. Crie o banco de dados e rode as migrations:
 
 ```bash
-npx prisma migrate dev --name init
+npm install ts-node --save-dev
 ```
 
 2. Popule o banco com dados iniciais:
 
 ```bash
-npx prisma db seed
+npm run seed
 ```
 
 ---
