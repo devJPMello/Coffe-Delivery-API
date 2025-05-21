@@ -21,7 +21,7 @@ API RESTful desenvolvida com NestJS, Prisma ORM e PostgreSQL (NeonDB), para gere
 1. Clone o repositório:
 
 ```bash
-git clone 
+git clone https://github.com/devJPMello/Coffe-Delivery-API.git
 ```
 
 2. Instale as dependências:
