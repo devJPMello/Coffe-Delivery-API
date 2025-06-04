@@ -35,13 +35,26 @@ export class CoffeeService {
   async findById(id: number) {
     const cafe = await this.prisma.cafe.findUnique({
       where: { id },
-      include: { tags: true },
+      include: {
+        tags: true,
+        itensPedido: {
+          include: {
+            pedido: {
+              include: {
+                cliente: true,
+                entrega: true,
+              },
+            },
+          },
+        },
+      },
     });
-
+  
     if (!cafe) {
       throw new NotFoundException(`Café com ID ${id} não encontrado.`);
     }
-
+  
     return cafe;
   }
+  
 }
