@@ -3,6 +3,6 @@ import { CoffeeModule } from './coffee/coffee.module';
 import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [CoffeeModule, PrismaModule],
+  imports: [PrismaModule, CoffeeModule],
 })
 export class AppModule {}
