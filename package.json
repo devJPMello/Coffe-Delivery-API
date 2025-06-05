@@ -10,8 +10,11 @@
     "start:dev": "nest start --watch",
     "build": "nest build",
     "test": "jest",
-    "seed": "ts-node prisma/seed.ts"
+    "seed":  "prisma db seed"
   },
+  "prisma": {
+  "seed": "ts-node prisma/seed.ts"
+},
   "dependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.2",
