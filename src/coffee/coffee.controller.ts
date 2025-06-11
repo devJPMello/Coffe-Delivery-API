@@ -7,6 +7,7 @@ import {
   Body,
   HttpCode,
   HttpStatus,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { CoffeeService } from './coffee.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
@@ -26,24 +27,24 @@ export class CoffeeController {
     return this.coffeeService.findAll();
   }
 
-  @Get(':id')
-  findById(@Param('id') id: string) {
-    return this.coffeeService.findById(Number(id));
-  }
-
-  @Get(':id/order')
-  findPedidosByCafeId(@Param('id') id: string) {
-    return this.coffeeService.findPedidosByCafeId(Number(id));
-  }
-
-  @Get('plus-order-coffee')
+  @Get('plus-order-coffee') 
   findMaisVendidos() {
     return this.coffeeService.findMaisVendidos();
   }
 
+  @Get(':id/order')
+  findPedidosByCafeId(@Param('id', ParseIntPipe) id: number) {
+    return this.coffeeService.findPedidosByCafeId(id);
+  }
+
+  @Get(':id')
+  findById(@Param('id', ParseIntPipe) id: number) {
+    return this.coffeeService.findById(id);
+  }
+
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  remove(@Param('id') id: string) {
-    return this.coffeeService.remove(Number(id));
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.coffeeService.remove(id);
   }
 }
