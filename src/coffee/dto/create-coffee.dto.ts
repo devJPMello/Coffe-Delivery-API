@@ -1,10 +1,20 @@
-import { IsString, IsNumber, IsArray, ArrayNotEmpty, Min } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  IsArray,
+  ArrayNotEmpty,
+  Min,
+  IsNotEmpty,
+  IsOptional,
+} from 'class-validator';
 
 export class CreateCoffeeDto {
   @IsString()
+  @IsNotEmpty()
   nome: string;
 
   @IsString()
+  @IsNotEmpty()
   tipo: string;
 
   @IsNumber()
@@ -12,10 +22,16 @@ export class CreateCoffeeDto {
   preco: number;
 
   @IsString()
+  @IsNotEmpty()
   descricao: string;
 
   @IsArray()
   @ArrayNotEmpty()
-  @IsString({ each: true }) // ← cada item do array deve ser uma string
+  @IsString({ each: true })
   tags: string[];
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  quantidade?: number;
 }
