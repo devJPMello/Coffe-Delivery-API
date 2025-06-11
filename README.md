@@ -78,8 +78,12 @@ Servidor disponível por padrão em:
 Durante desenvolvimento, para resetar os dados:
 
 ```ts
-await prisma.aluno.deleteMany();
-await prisma.classeDeAula.deleteMany();
+  await prisma.entrega.deleteMany();
+  await prisma.itemPedido.deleteMany();
+  await prisma.pedido.deleteMany();
+  await prisma.tagCafe.deleteMany();
+  await prisma.cafe.deleteMany();
+  await prisma.cliente.deleteMany();
 ```
 
 Essas linhas já estão incluídas no `prisma/seed.ts`.
